@@ -1,0 +1,9 @@
+## Interface: 20505
+## Title: Chat Height Expander
+## Notes: Adds a small button to toggle the main chat between compact and expanded heights.
+## Notes-ptBR: Adiciona um pequeno botao para alternar o chat principal entre altura compacta e expandida.
+## Author: Ingo Stramm
+## Version: 1.2.0
+## SavedVariables: ChatHeightExpanderDB
+
+ChatHeightExpander.lua
