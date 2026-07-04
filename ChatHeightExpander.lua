@@ -94,7 +94,8 @@ local BUTTON_POSITIONS = {
 }
 
 local db
-local button
+local buttons = {}
+local hookedChatFrames = {}
 local configWindow
 local optionsPanel
 local configControls = {}
@@ -112,7 +113,11 @@ local function Print(message)
 end
 
 local function GetChatFrame()
-    return _G.ChatFrame1
+    return SELECTED_CHAT_FRAME or _G.ChatFrame1
+end
+
+local function GetChatFrameCount()
+    return NUM_CHAT_WINDOWS or 10
 end
 
 local function GetButtonPosition(value)
@@ -130,62 +135,62 @@ local function SaveChatSize(frame)
     end
 end
 
-local function SetChatHeight(height)
-    local frame = GetChatFrame()
-    if not frame then
-        return
+local function SetChatHeight(frame, height)
+    if frame then
+        frame:SetHeight(height)
+        SaveChatSize(frame)
     end
-
-    frame:SetHeight(height)
-    SaveChatSize(frame)
 end
 
-local function PositionButton()
-    local frame = GetChatFrame()
-    if not frame or not button then
-        return
+local function SetAllChatHeights(height)
+    for index = 1, GetChatFrameCount() do
+        SetChatHeight(_G["ChatFrame" .. index], height)
     end
+end
 
+local function PositionButton(frame, button)
     local position = GetButtonPosition(db.buttonPosition)
     button:ClearAllPoints()
     button:SetPoint(position.point, frame, position.relativePoint, position.x, position.y)
 end
 
-local function RefreshButton()
-    if not button then
+local function RefreshChatButtons()
+    if not db then
         return
     end
 
-    PositionButton()
+    for frame, chatButton in pairs(buttons) do
+        PositionButton(frame, chatButton)
 
-    if db.buttonShown then
-        button:Show()
-    else
-        button:Hide()
-    end
+        if db.buttonShown then
+            chatButton:Show()
+        else
+            chatButton:Hide()
+        end
 
-    if db.expanded then
-        button:SetText("-")
-        button:SetScript("OnEnter", function(self)
-            GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-            GameTooltip:SetText(L.TITLE)
-            GameTooltip:AddLine(L.COLLAPSE_TOOLTIP, 1, 1, 1)
-            GameTooltip:Show()
-        end)
-    else
-        button:SetText("+")
-        button:SetScript("OnEnter", function(self)
-            GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-            GameTooltip:SetText(L.TITLE)
-            GameTooltip:AddLine(L.EXPAND_TOOLTIP, 1, 1, 1)
-            GameTooltip:Show()
-        end)
+        if db.expanded then
+            chatButton:SetText("-")
+            chatButton:SetScript("OnEnter", function(self)
+                GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+                GameTooltip:SetText(L.TITLE)
+                GameTooltip:AddLine(L.COLLAPSE_TOOLTIP, 1, 1, 1)
+                GameTooltip:Show()
+            end)
+        else
+            chatButton:SetText("+")
+            chatButton:SetScript("OnEnter", function(self)
+                GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+                GameTooltip:SetText(L.TITLE)
+                GameTooltip:AddLine(L.EXPAND_TOOLTIP, 1, 1, 1)
+                GameTooltip:Show()
+            end)
+        end
     end
 end
 
 local function ApplyState()
-    SetChatHeight(db.expanded and db.expandedHeight or db.collapsedHeight)
-    RefreshButton()
+    SetAllChatHeights(db.expanded and db.expandedHeight or db.collapsedHeight)
+    RefreshChatButtons()
 end
 
 local function LearnCurrentChatHeight()
@@ -209,22 +214,34 @@ local function Toggle()
     ApplyState()
 end
 
-local function CreateButton()
-    local frame = GetChatFrame()
-    if not frame or button then
+local function CreateChatButton(frame, index)
+    if not frame or buttons[frame] then
         return
     end
 
-    button = CreateFrame("Button", "ChatHeightExpanderButton", frame, "UIPanelButtonTemplate")
-    button:SetSize(20, 20)
-    button:SetFrameStrata(frame:GetFrameStrata())
-    button:SetFrameLevel(frame:GetFrameLevel() + 20)
-    button:SetScript("OnClick", Toggle)
-    button:SetScript("OnLeave", function()
+    local chatButton = CreateFrame("Button", "ChatHeightExpanderButton" .. index, frame, "UIPanelButtonTemplate")
+    chatButton:SetSize(20, 20)
+    chatButton:SetFrameStrata(frame:GetFrameStrata())
+    chatButton:SetFrameLevel(frame:GetFrameLevel() + 20)
+    chatButton:SetScript("OnClick", Toggle)
+    chatButton:SetScript("OnLeave", function()
         GameTooltip:Hide()
     end)
 
-    RefreshButton()
+    buttons[frame] = chatButton
+
+    if not hookedChatFrames[frame] then
+        hookedChatFrames[frame] = true
+        frame:HookScript("OnShow", RefreshChatButtons)
+    end
+end
+
+local function CreateChatButtons()
+    for index = 1, GetChatFrameCount() do
+        CreateChatButton(_G["ChatFrame" .. index], index)
+    end
+
+    RefreshChatButtons()
 end
 
 local function CreateLabel(parent, text)
@@ -425,7 +442,7 @@ local function AddConfigControls(parent, prefix, topOffset, includeCloseButton)
     owner.showButton.Text:SetText(L.SHOW_BUTTON)
     owner.showButton:SetScript("OnClick", function(self)
         db.buttonShown = self:GetChecked() and true or false
-        RefreshButton()
+        RefreshChatButtons()
         RefreshConfigControls()
     end)
 
@@ -445,7 +462,7 @@ local function AddConfigControls(parent, prefix, topOffset, includeCloseButton)
             info.func = function()
                 db.buttonPosition = position.value
                 SetDropdownText(dropdown, position.label)
-                RefreshButton()
+                RefreshChatButtons()
                 RefreshConfigControls()
             end
             UIDropDownMenu_AddButton(info, level)
@@ -586,7 +603,7 @@ local function HandleSlash(input)
         SetNumberOption("expandedHeight", value)
     elseif command == "botao" or command == "button" then
         db.buttonShown = not db.buttonShown
-        RefreshButton()
+        RefreshChatButtons()
         RefreshConfigControls()
         Print(db.buttonShown and L.BUTTON_VISIBLE or L.BUTTON_HIDDEN)
     elseif command == "reset" then
@@ -618,7 +635,7 @@ events:SetScript("OnEvent", function(_, event, addonName)
 
         C_Timer.After(0.5, function()
             LearnCurrentChatHeight()
-            CreateButton()
+            CreateChatButtons()
             ApplyState()
             RefreshConfigControls()
         end)

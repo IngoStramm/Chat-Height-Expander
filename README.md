@@ -5,7 +5,7 @@ Chat Height Expander is a World of Warcraft: The Burning Crusade Classic addon t
 ## Features
 
 - Toggle the main chat between compact and expanded heights.
-- Small configurable `+`/`-` button anchored to the chat frame.
+- Small configurable `+`/`-` button anchored to each chat frame/tab.
 - Options panel in the game's AddOns options screen.
 - Standalone options window with `/che config`.
 - Saves compact height, expanded height, button visibility, and button position.
@@ -56,7 +56,7 @@ Do not use GitHub's green **Code > Download ZIP** button for installation. That 
 
 ## Usage
 
-- Click the small `+` button on the chat frame to expand the chat.
+- Click the small `+` button on any chat frame/tab to expand the chat.
 - Click the `-` button to return to compact height.
 - Open the game options, go to the AddOns section, and select Chat Height Expander to configure heights and button position.
 - Use `/che config` to open the standalone options window.
