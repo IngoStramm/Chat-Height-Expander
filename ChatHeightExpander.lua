@@ -96,6 +96,7 @@ local BUTTON_POSITIONS = {
 local db
 local buttons = {}
 local hookedChatFrames = {}
+local originalLayers = {}
 local configWindow
 local optionsPanel
 local configControls = {}
@@ -148,6 +149,47 @@ local function SetAllChatHeights(height)
     end
 end
 
+local function SaveOriginalLayer(frame)
+    if frame and not originalLayers[frame] then
+        originalLayers[frame] = {
+            strata = frame:GetFrameStrata(),
+            level = frame:GetFrameLevel(),
+        }
+    end
+end
+
+local function RaiseChatLayer(frame)
+    if not frame then
+        return
+    end
+
+    SaveOriginalLayer(frame)
+    frame:SetFrameStrata("FULLSCREEN_DIALOG")
+    frame:SetFrameLevel(100)
+end
+
+local function RestoreChatLayer(frame)
+    local layer = frame and originalLayers[frame]
+    if not layer then
+        return
+    end
+
+    frame:SetFrameStrata(layer.strata or "MEDIUM")
+    frame:SetFrameLevel(layer.level or 0)
+    originalLayers[frame] = nil
+end
+
+local function ApplyChatLayers()
+    for index = 1, GetChatFrameCount() do
+        local frame = _G["ChatFrame" .. index]
+        if db.expanded then
+            RaiseChatLayer(frame)
+        else
+            RestoreChatLayer(frame)
+        end
+    end
+end
+
 local function PositionButton(frame, button)
     local position = GetButtonPosition(db.buttonPosition)
     button:ClearAllPoints()
@@ -161,6 +203,8 @@ local function RefreshChatButtons()
 
     for frame, chatButton in pairs(buttons) do
         PositionButton(frame, chatButton)
+        chatButton:SetFrameStrata(frame:GetFrameStrata())
+        chatButton:SetFrameLevel(frame:GetFrameLevel() + 20)
 
         if db.buttonShown then
             chatButton:Show()
@@ -188,8 +232,12 @@ local function RefreshChatButtons()
     end
 end
 
+local CreateChatButtons
+
 local function ApplyState()
+    CreateChatButtons()
     SetAllChatHeights(db.expanded and db.expandedHeight or db.collapsedHeight)
+    ApplyChatLayers()
     RefreshChatButtons()
 end
 
@@ -232,11 +280,16 @@ local function CreateChatButton(frame, index)
 
     if not hookedChatFrames[frame] then
         hookedChatFrames[frame] = true
-        frame:HookScript("OnShow", RefreshChatButtons)
+        frame:HookScript("OnShow", function()
+            if db.expanded then
+                RaiseChatLayer(frame)
+            end
+            RefreshChatButtons()
+        end)
     end
 end
 
-local function CreateChatButtons()
+function CreateChatButtons()
     for index = 1, GetChatFrameCount() do
         CreateChatButton(_G["ChatFrame" .. index], index)
     end
