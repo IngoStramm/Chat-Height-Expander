@@ -38,7 +38,7 @@ It is designed for players who like keeping the chat small during normal gamepla
 Built for World of Warcraft: The Burning Crusade Classic Anniversary.
 
 ```text
-Interface: 20505
+Interface: 20506
 ```
 
 ## Notes
