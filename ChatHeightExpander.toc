@@ -2,8 +2,18 @@
 ## Title: Chat Height Expander
 ## Notes: Adds a small button to toggle the main chat between compact and expanded heights.
 ## Notes-ptBR: Adiciona um pequeno botao para alternar o chat principal entre altura compacta e expandida.
+## Notes-deDE: Fuegt eine kleine Schaltflaeche hinzu, um die Haupthoehe des Chats zwischen kompakt und erweitert umzuschalten.
+## Notes-esES: Anade un pequeno boton para alternar el chat principal entre altura compacta y expandida.
+## Notes-esMX: Agrega un pequeno boton para alternar el chat principal entre altura compacta y expandida.
+## Notes-frFR: Ajoute un petit bouton pour basculer le chat principal entre hauteur compacte et etendue.
+## Notes-itIT: Aggiunge un piccolo pulsante per alternare la chat principale tra altezza compatta ed espansa.
+## Notes-koKR: 기본 채팅을 축소 높이와 확장 높이로 전환하는 작은 버튼을 추가합니다.
+## Notes-ruRU: Добавляет маленькую кнопку для переключения основного чата между компактной и расширенной высотой.
+## Notes-zhCN: 添加一个小按钮，用于在紧凑和展开高度之间切换主聊天窗口。
+## Notes-zhTW: 新增一個小按鈕，用於在精簡和展開高度之間切換主要聊天視窗。
 ## Author: Ingo Stramm
-## Version: 1.2.2
+## Version: 1.3.0
+## X-Curse-Project-ID: 1601514
 ## SavedVariables: ChatHeightExpanderDB
 
 ChatHeightExpander.lua

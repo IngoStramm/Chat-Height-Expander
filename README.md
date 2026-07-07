@@ -1,5 +1,7 @@
 # Chat Height Expander
 
+![Chat Height Expander icon](assets/chat-height-expander-icon.png)
+
 Chat Height Expander is a World of Warcraft: The Burning Crusade Classic addon that adds a small button to the main chat window for toggling between compact and expanded chat heights.
 
 ## Features
@@ -11,7 +13,7 @@ Chat Height Expander is a World of Warcraft: The Burning Crusade Classic addon t
 - Standalone options window with `/che config`.
 - Saves compact height, expanded height, button visibility, and button position.
 - Creates optional macros for toggling the chat and opening options.
-- English and Brazilian Portuguese localization based on the game client locale.
+- Localization for all WoW client languages: enUS, enGB, ptBR, deDE, esES, esMX, frFR, itIT, koKR, ruRU, zhCN, and zhTW.
 
 ## Commands
 
@@ -70,3 +72,7 @@ Built for WoW TBC Classic Anniversary client:
 ```text
 Interface: 20505
 ```
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md).

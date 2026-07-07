@@ -2,5 +2,6 @@
 *.tmp
 *.log
 *.zip
+package/
 .DS_Store
 Thumbs.db
