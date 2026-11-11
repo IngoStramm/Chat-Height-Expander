@@ -1,18 +1,18 @@
-## Interface: 20506
+## Interface: 20506, 16001
 ## Title: Chat Height Expander
-## Notes: Adds a small button to toggle the main chat between compact and expanded heights.
-## Notes-ptBR: Adiciona um pequeno botao para alternar o chat principal entre altura compacta e expandida.
-## Notes-deDE: Fuegt eine kleine Schaltflaeche hinzu, um die Haupthoehe des Chats zwischen kompakt und erweitert umzuschalten.
-## Notes-esES: Anade un pequeno boton para alternar el chat principal entre altura compacta y expandida.
-## Notes-esMX: Agrega un pequeno boton para alternar el chat principal entre altura compacta y expandida.
-## Notes-frFR: Ajoute un petit bouton pour basculer le chat principal entre hauteur compacte et etendue.
-## Notes-itIT: Aggiunge un piccolo pulsante per alternare la chat principale tra altezza compatta ed espansa.
-## Notes-koKR: 기본 채팅을 축소 높이와 확장 높이로 전환하는 작은 버튼을 추가합니다.
-## Notes-ruRU: Добавляет маленькую кнопку для переключения основного чата между компактной и расширенной высотой.
-## Notes-zhCN: 添加一个小按钮，用于在紧凑和展开高度之间切换主聊天窗口。
-## Notes-zhTW: 新增一個小按鈕，用於在精簡和展開高度之間切換主要聊天視窗。
+## Notes: Toggle compact and expanded chat with a repositionable button and customizable heights.
+## Notes-ptBR: Alterne entre chat compacto e expandido com um botao reposicionavel e alturas configuraveis.
+## Notes-deDE: Wechsle zwischen kompaktem und erweitertem Chat mit einer verschiebbaren Schaltflaeche und einstellbaren Hoehen.
+## Notes-esES: Alterna entre chat compacto y expandido con un boton reposicionable y alturas configurables.
+## Notes-esMX: Alterna entre chat compacto y expandido con un boton reposicionable y alturas configurables.
+## Notes-frFR: Alternez entre chat compact et agrandi avec un bouton repositionnable et des hauteurs personnalisables.
+## Notes-itIT: Alterna chat compatta ed espansa con un pulsante riposizionabile e altezze configurabili.
+## Notes-koKR: 위치를 조정할 수 있는 버튼과 높이 설정으로 채팅창을 축소하거나 확장합니다.
+## Notes-ruRU: Переключайте компактный и расширенный чат с настраиваемой высотой и положением кнопки.
+## Notes-zhCN: 使用可调整位置的按钮切换紧凑和展开聊天，并自定义高度。
+## Notes-zhTW: 使用可調整位置的按鈕切換精簡與展開聊天，並自訂高度。
 ## Author: Ingo Stramm
-## Version: 1.3.1
+## Version: 1.4.0
 ## X-Curse-Project-ID: 1601514
 ## SavedVariables: ChatHeightExpanderDB
 

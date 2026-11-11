@@ -11,6 +11,11 @@ local LOCALES = {
         EXPANDED_HEIGHT = "Expanded height",
         SHOW_BUTTON = "Show chat button",
         BUTTON_POSITION = "Button position",
+        BUTTON_OUTSIDE = "Place button outside chat",
+        BUTTON_OFFSET_X = "Horizontal offset",
+        BUTTON_OFFSET_Y = "Vertical offset",
+        BUTTON_OFFSET_HINT = "Positive: right / up. Negative: left / down. Range: -500 to 500.",
+        INVALID_OFFSET = "Use offsets between -500 and 500.",
         TOPRIGHT = "Top right",
         TOPLEFT = "Top left",
         BOTTOMRIGHT = "Bottom right",
@@ -47,6 +52,11 @@ local LOCALES = {
         EXPANDED_HEIGHT = "Altura expandida",
         SHOW_BUTTON = "Mostrar botao no chat",
         BUTTON_POSITION = "Posicao do botao",
+        BUTTON_OUTSIDE = "Colocar botao fora do chat",
+        BUTTON_OFFSET_X = "Deslocamento horizontal",
+        BUTTON_OFFSET_Y = "Deslocamento vertical",
+        BUTTON_OFFSET_HINT = "Positivo: direita / cima. Negativo: esquerda / baixo. Limite: -500 a 500.",
+        INVALID_OFFSET = "Use deslocamentos entre -500 e 500.",
         TOPRIGHT = "Superior direita",
         TOPLEFT = "Superior esquerda",
         BOTTOMRIGHT = "Inferior direita",
@@ -81,6 +91,11 @@ local LOCALES = {
         EXPANDED_HEIGHT = "Erweiterte Höhe",
         SHOW_BUTTON = "Chat-Schaltfläche anzeigen",
         BUTTON_POSITION = "Schaltflächenposition",
+        BUTTON_OUTSIDE = "Schaltfläche außerhalb des Chats",
+        BUTTON_OFFSET_X = "Horizontaler Versatz",
+        BUTTON_OFFSET_Y = "Vertikaler Versatz",
+        BUTTON_OFFSET_HINT = "Positiv: rechts / oben. Negativ: links / unten. Bereich: -500 bis 500.",
+        INVALID_OFFSET = "Verwende einen Versatz zwischen -500 und 500.",
         TOPRIGHT = "Oben rechts",
         TOPLEFT = "Oben links",
         BOTTOMRIGHT = "Unten rechts",
@@ -115,6 +130,11 @@ local LOCALES = {
         EXPANDED_HEIGHT = "Altura expandida",
         SHOW_BUTTON = "Mostrar botón del chat",
         BUTTON_POSITION = "Posición del botón",
+        BUTTON_OUTSIDE = "Colocar el botón fuera del chat",
+        BUTTON_OFFSET_X = "Desplazamiento horizontal",
+        BUTTON_OFFSET_Y = "Desplazamiento vertical",
+        BUTTON_OFFSET_HINT = "Positivo: derecha / arriba. Negativo: izquierda / abajo. Rango: -500 a 500.",
+        INVALID_OFFSET = "Usa desplazamientos entre -500 y 500.",
         TOPRIGHT = "Arriba derecha",
         TOPLEFT = "Arriba izquierda",
         BOTTOMRIGHT = "Abajo derecha",
@@ -149,6 +169,11 @@ local LOCALES = {
         EXPANDED_HEIGHT = "Altura expandida",
         SHOW_BUTTON = "Mostrar botón del chat",
         BUTTON_POSITION = "Posición del botón",
+        BUTTON_OUTSIDE = "Colocar el botón fuera del chat",
+        BUTTON_OFFSET_X = "Desplazamiento horizontal",
+        BUTTON_OFFSET_Y = "Desplazamiento vertical",
+        BUTTON_OFFSET_HINT = "Positivo: derecha / arriba. Negativo: izquierda / abajo. Rango: -500 a 500.",
+        INVALID_OFFSET = "Usa desplazamientos entre -500 y 500.",
         TOPRIGHT = "Arriba derecha",
         TOPLEFT = "Arriba izquierda",
         BOTTOMRIGHT = "Abajo derecha",
@@ -183,6 +208,11 @@ local LOCALES = {
         EXPANDED_HEIGHT = "Hauteur étendue",
         SHOW_BUTTON = "Afficher le bouton du chat",
         BUTTON_POSITION = "Position du bouton",
+        BUTTON_OUTSIDE = "Placer le bouton hors du chat",
+        BUTTON_OFFSET_X = "Décalage horizontal",
+        BUTTON_OFFSET_Y = "Décalage vertical",
+        BUTTON_OFFSET_HINT = "Positif : droite / haut. Négatif : gauche / bas. Limites : -500 à 500.",
+        INVALID_OFFSET = "Utilisez des décalages entre -500 et 500.",
         TOPRIGHT = "Haut droite",
         TOPLEFT = "Haut gauche",
         BOTTOMRIGHT = "Bas droite",
@@ -217,6 +247,11 @@ local LOCALES = {
         EXPANDED_HEIGHT = "Altezza espansa",
         SHOW_BUTTON = "Mostra pulsante chat",
         BUTTON_POSITION = "Posizione pulsante",
+        BUTTON_OUTSIDE = "Posiziona il pulsante fuori dalla chat",
+        BUTTON_OFFSET_X = "Spostamento orizzontale",
+        BUTTON_OFFSET_Y = "Spostamento verticale",
+        BUTTON_OFFSET_HINT = "Positivo: destra / alto. Negativo: sinistra / basso. Intervallo: da -500 a 500.",
+        INVALID_OFFSET = "Usa spostamenti tra -500 e 500.",
         TOPRIGHT = "Alto destra",
         TOPLEFT = "Alto sinistra",
         BOTTOMRIGHT = "Basso destra",
@@ -251,6 +286,11 @@ local LOCALES = {
         EXPANDED_HEIGHT = "확장 높이",
         SHOW_BUTTON = "채팅 버튼 표시",
         BUTTON_POSITION = "버튼 위치",
+        BUTTON_OUTSIDE = "채팅창 바깥에 버튼 배치",
+        BUTTON_OFFSET_X = "가로 위치 조정",
+        BUTTON_OFFSET_Y = "세로 위치 조정",
+        BUTTON_OFFSET_HINT = "양수: 오른쪽 / 위. 음수: 왼쪽 / 아래. 범위: -500~500.",
+        INVALID_OFFSET = "-500에서 500 사이의 값을 입력하세요.",
         TOPRIGHT = "오른쪽 위",
         TOPLEFT = "왼쪽 위",
         BOTTOMRIGHT = "오른쪽 아래",
@@ -285,6 +325,11 @@ local LOCALES = {
         EXPANDED_HEIGHT = "Расширенная высота",
         SHOW_BUTTON = "Показывать кнопку чата",
         BUTTON_POSITION = "Положение кнопки",
+        BUTTON_OUTSIDE = "Разместить кнопку снаружи чата",
+        BUTTON_OFFSET_X = "Смещение по горизонтали",
+        BUTTON_OFFSET_Y = "Смещение по вертикали",
+        BUTTON_OFFSET_HINT = "Плюс: вправо / вверх. Минус: влево / вниз. Диапазон: от -500 до 500.",
+        INVALID_OFFSET = "Используйте смещения от -500 до 500.",
         TOPRIGHT = "Сверху справа",
         TOPLEFT = "Сверху слева",
         BOTTOMRIGHT = "Снизу справа",
@@ -319,6 +364,11 @@ local LOCALES = {
         EXPANDED_HEIGHT = "展开高度",
         SHOW_BUTTON = "显示聊天按钮",
         BUTTON_POSITION = "按钮位置",
+        BUTTON_OUTSIDE = "将按钮放在聊天窗口外侧",
+        BUTTON_OFFSET_X = "水平偏移",
+        BUTTON_OFFSET_Y = "垂直偏移",
+        BUTTON_OFFSET_HINT = "正数：右 / 上。负数：左 / 下。范围：-500 到 500。",
+        INVALID_OFFSET = "请输入 -500 到 500 之间的偏移值。",
         TOPRIGHT = "右上",
         TOPLEFT = "左上",
         BOTTOMRIGHT = "右下",
@@ -353,6 +403,11 @@ local LOCALES = {
         EXPANDED_HEIGHT = "展開高度",
         SHOW_BUTTON = "顯示聊天按鈕",
         BUTTON_POSITION = "按鈕位置",
+        BUTTON_OUTSIDE = "將按鈕放在聊天視窗外側",
+        BUTTON_OFFSET_X = "水平偏移",
+        BUTTON_OFFSET_Y = "垂直偏移",
+        BUTTON_OFFSET_HINT = "正數：右 / 上。負數：左 / 下。範圍：-500 到 500。",
+        INVALID_OFFSET = "請輸入 -500 到 500 之間的偏移值。",
         TOPRIGHT = "右上",
         TOPLEFT = "左上",
         BOTTOMRIGHT = "右下",
@@ -400,14 +455,17 @@ local DEFAULTS = {
     expanded = false,
     buttonShown = true,
     buttonPosition = "TOPRIGHT",
+    buttonOutside = false,
+    buttonOffsetX = 0,
+    buttonOffsetY = 0,
     initialized = false,
 }
 
 local BUTTON_POSITIONS = {
-    { value = "TOPRIGHT", label = L.TOPRIGHT, point = "TOPRIGHT", relativePoint = "TOPRIGHT", x = -2, y = -2 },
-    { value = "TOPLEFT", label = L.TOPLEFT, point = "TOPLEFT", relativePoint = "TOPLEFT", x = 2, y = -2 },
-    { value = "BOTTOMRIGHT", label = L.BOTTOMRIGHT, point = "BOTTOMRIGHT", relativePoint = "BOTTOMRIGHT", x = -2, y = 2 },
-    { value = "BOTTOMLEFT", label = L.BOTTOMLEFT, point = "BOTTOMLEFT", relativePoint = "BOTTOMLEFT", x = 2, y = 2 },
+    { value = "TOPRIGHT", label = L.TOPRIGHT, point = "TOPRIGHT", outsidePoint = "TOPLEFT", relativePoint = "TOPRIGHT", x = -2, y = -2 },
+    { value = "TOPLEFT", label = L.TOPLEFT, point = "TOPLEFT", outsidePoint = "TOPRIGHT", relativePoint = "TOPLEFT", x = 2, y = -2 },
+    { value = "BOTTOMRIGHT", label = L.BOTTOMRIGHT, point = "BOTTOMRIGHT", outsidePoint = "BOTTOMLEFT", relativePoint = "BOTTOMRIGHT", x = -2, y = 2 },
+    { value = "BOTTOMLEFT", label = L.BOTTOMLEFT, point = "BOTTOMLEFT", outsidePoint = "BOTTOMRIGHT", relativePoint = "BOTTOMLEFT", x = 2, y = 2 },
 }
 
 local db
@@ -509,8 +567,10 @@ end
 
 local function PositionButton(frame, button)
     local position = GetButtonPosition(db.buttonPosition)
+    local point = db.buttonOutside and position.outsidePoint or position.point
+    local x = db.buttonOutside and -position.x or position.x
     button:ClearAllPoints()
-    button:SetPoint(position.point, frame, position.relativePoint, position.x, position.y)
+    button:SetPoint(point, frame, position.relativePoint, x + db.buttonOffsetX, position.y + db.buttonOffsetY)
 end
 
 local function RefreshChatButtons()
@@ -674,6 +734,9 @@ local function RefreshConfigControls()
         owner.collapsedBox:SetText(tostring(db.collapsedHeight or DEFAULTS.collapsedHeight))
         owner.expandedBox:SetText(tostring(db.expandedHeight or DEFAULTS.expandedHeight))
         owner.showButton:SetChecked(db.buttonShown and true or false)
+        owner.buttonOutside:SetChecked(db.buttonOutside and true or false)
+        owner.buttonOffsetX:SetText(tostring(db.buttonOffsetX))
+        owner.buttonOffsetY:SetText(tostring(db.buttonOffsetY))
         SetDropdownText(owner.positionDropdown, GetButtonPosition(db.buttonPosition).label)
     end
 end
@@ -681,6 +744,14 @@ end
 local function ReadHeight(editBox)
     local value = tonumber(editBox:GetText() or "")
     if not value or value < 60 then
+        return nil
+    end
+    return math.floor(value + 0.5)
+end
+
+local function ReadOffset(editBox)
+    local value = tonumber(editBox:GetText() or "")
+    if not value or value ~= value or value < -500 or value > 500 then
         return nil
     end
     return math.floor(value + 0.5)
@@ -696,6 +767,16 @@ local function ApplyConfigControls(owner)
         return
     end
 
+    local offsetX = ReadOffset(owner.buttonOffsetX)
+    local offsetY = ReadOffset(owner.buttonOffsetY)
+    if not offsetX or not offsetY then
+        Print(L.INVALID_OFFSET)
+        RefreshConfigControls()
+        return
+    end
+
+    db.buttonOffsetX = offsetX
+    db.buttonOffsetY = offsetY
     db.collapsedHeight = collapsedHeight
     db.expandedHeight = expandedHeight
     db.buttonShown = owner.showButton:GetChecked() and true or false
@@ -839,8 +920,32 @@ local function AddConfigControls(parent, prefix, topOffset, includeCloseButton)
         end
     end)
 
+    owner.buttonOutside = CreateFrame("CheckButton", nil, parent, "InterfaceOptionsCheckButtonTemplate")
+    owner.buttonOutside:SetPoint("TOPLEFT", 20, -186 - topOffset)
+    owner.buttonOutside.Text:SetText(L.BUTTON_OUTSIDE)
+    owner.buttonOutside:SetScript("OnClick", function(self)
+        db.buttonOutside = self:GetChecked() and true or false
+        RefreshChatButtons()
+        RefreshConfigControls()
+    end)
+
+    local offsetXLabel = CreateLabel(parent, L.BUTTON_OFFSET_X)
+    offsetXLabel:SetPoint("TOPLEFT", 24, -224 - topOffset)
+    owner.buttonOffsetX = CreateEditBox(parent, 80, includeCloseButton)
+    owner.buttonOffsetX:SetPoint("TOPLEFT", 224, -218 - topOffset)
+
+    local offsetYLabel = CreateLabel(parent, L.BUTTON_OFFSET_Y)
+    offsetYLabel:SetPoint("TOPLEFT", 24, -260 - topOffset)
+    owner.buttonOffsetY = CreateEditBox(parent, 80, includeCloseButton)
+    owner.buttonOffsetY:SetPoint("TOPLEFT", 224, -254 - topOffset)
+
+    local offsetHint = CreateLabel(parent, L.BUTTON_OFFSET_HINT)
+    offsetHint:SetPoint("TOPLEFT", 24, -290 - topOffset)
+    offsetHint:SetWidth(372)
+    offsetHint:SetJustifyH("LEFT")
+
     local applyButton = CreateButtonControl(parent, L.APPLY, 90)
-    applyButton:SetPoint("TOPLEFT", 24, -198 - topOffset)
+    applyButton:SetPoint("TOPLEFT", 24, -334 - topOffset)
     applyButton:SetScript("OnClick", function()
         ApplyConfigControls(owner)
     end)
@@ -850,7 +955,7 @@ local function AddConfigControls(parent, prefix, topOffset, includeCloseButton)
     currentButton:SetScript("OnClick", UseCurrentAsCompact)
 
     local resetButton = CreateButtonControl(parent, L.RESET, 90)
-    resetButton:SetPoint("TOPLEFT", 24, -232 - topOffset)
+    resetButton:SetPoint("TOPLEFT", 24, -368 - topOffset)
     resetButton:SetScript("OnClick", ResetConfig)
 
     local macroButton = CreateButtonControl(parent, L.CREATE_MACROS, 130)
@@ -874,7 +979,7 @@ local function CreateConfigWindow()
     end
 
     local frame = CreateFrame("Frame", "ChatHeightExpanderConfigWindow", UIParent, "BasicFrameTemplateWithInset")
-    frame:SetSize(420, 300)
+    frame:SetSize(420, 430)
     frame:SetPoint("CENTER")
     frame:SetFrameStrata("DIALOG")
     frame:SetMovable(true)
@@ -905,7 +1010,7 @@ local function CreateOptionsPanel()
 
     local panel = CreateFrame("Frame", "ChatHeightExpanderOptionsPanel", UIParent)
     panel.name = L.ADDON_NAME
-    panel:SetSize(560, 360)
+    panel:SetSize(560, 460)
     panel:Hide()
 
     local title = panel:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge")
